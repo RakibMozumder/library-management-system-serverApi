@@ -11,7 +11,11 @@ export const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
-
+app.use(
+  cors({
+    origin: ["https://library-management-system-client-ap.vercel.app"],
+  })
+);
 app.use("/api/v1/books", bookRouter);
 app.use("/api/v1/borrows", borrowRouter);
 
