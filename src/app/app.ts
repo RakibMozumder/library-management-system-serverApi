@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 app.use(
   cors({
-    origin: ["https://librarymanagementsystemapi-alpha.vercel.app/"],
+    origin: ["https://library-management-system-client-ap.vercel.app"],
   })
 );
 app.use("/api/v1/books", bookRouter);
