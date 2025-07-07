@@ -18,6 +18,21 @@ exports.app.use((0, cors_1.default)({
 }));
 exports.app.use(express_1.default.json());
 exports.app.use((0, morgan_1.default)("dev"));
+exports.app.get("/", (req, res) => {
+    res.send(`
+    <h1>Library Management System API</h1>
+    <p>Welcome! This API is built with Express, TypeScript, and MongoDB.</p>
+    <ul>
+      <li><code>POST  /api/v1/books</code>   — Create a Book</li>
+      <li><code>GET   /api/v1/books</code>   — Get All Books</li>
+      <li><code>GET   /api/v1/books/:id</code> — Get Book by ID</li>
+      <li><code>PATCH /api/v1/books/:id</code> — Update Book</li>
+      <li><code>DELETE /api/v1/books/:id</code> — Delete Book</li>
+      <li><code>POST  /api/v1/borrows</code> — Borrow a Book</li>
+      <li><code>GET   /api/v1/borrows/summary</code> — Borrow Summary</li>
+    </ul>
+  `);
+});
 exports.app.use("/api/v1/books", book_route_1.bookRouter);
 exports.app.use("/api/v1/borrows", borrow_route_1.borrowRouter);
 exports.app.use(errorHandler_1.notFound);
