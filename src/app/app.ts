@@ -8,14 +8,17 @@ import { borrowRouter } from "../modules/borrow/borrow.route";
 
 export const app = express();
 
-app.use(cors());
-app.use(express.json());
-app.use(morgan("dev"));
 app.use(
   cors({
     origin: ["https://library-management-system-client-ap.vercel.app"],
+    credentials: true,
   })
 );
+
+app.use(express.json());
+
+app.use(morgan("dev"));
+
 app.use("/api/v1/books", bookRouter);
 app.use("/api/v1/borrows", borrowRouter);
 
